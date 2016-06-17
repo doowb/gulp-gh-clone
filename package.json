@@ -32,7 +32,22 @@
     "gulp-format-md": "^0.1.9",
     "mocha": "^2.5.3"
   },
-  "keywords": [],
+  "keywords": [
+    "clone",
+    "clone github repositories",
+    "clone repos",
+    "clone repositories",
+    "gh",
+    "gh-clone",
+    "gh clone",
+    "github",
+    "github-clone",
+    "github clone",
+    "gulp",
+    "gulpplugin",
+    "repos",
+    "repositories"
+  ],
   "verb": {
     "layout": "default",
     "plugins": [
