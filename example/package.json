@@ -1,0 +1,12 @@
+{
+  "name": "gulp-gh-clone-example",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "async-each": "^1.0.0",
+    "extend-shallow": "^2.0.1",
+    "through2": "^2.0.1"
+  }
+}
