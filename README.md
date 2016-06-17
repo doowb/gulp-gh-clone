@@ -1,6 +1,6 @@
 # gulp-gh-clone [![NPM version](https://img.shields.io/npm/v/gulp-gh-clone.svg?style=flat)](https://www.npmjs.com/package/gulp-gh-clone) [![NPM downloads](https://img.shields.io/npm/dm/gulp-gh-clone.svg?style=flat)](https://npmjs.org/package/gulp-gh-clone) [![Build Status](https://img.shields.io/travis/doowb/gulp-gh-clone.svg?style=flat)](https://travis-ci.org/doowb/gulp-gh-clone)
 
-Clone project dependencies into specified folder.
+Clone github repositories into a specified folder.
 
 ## Install
 
@@ -14,6 +14,36 @@ $ npm install gulp-gh-clone --save
 
 ```js
 var clone = require('gulp-gh-clone');
+```
+
+## API
+
+### [clone](index.js#L37)
+
+Returns a vinyl stream that will all the given function for each file coming through. The function should return an array of github repositories to be cloned.
+
+**Params**
+
+* `options` **{Object}**: Options
+* `options.fn` **{Function}**: Function that takes a `file` object and returns an array of github repositories.
+* `options.dest` **{String|Function}**: Destination path to clone the repos to. If a function, then it will be called with the repo name and expect a string to be returned.
+* `returns` **{Stream}**: Stream to be used in a gulp pipeline.
+
+**Example**
+
+```js
+var options = {
+  dest: 'dist',
+  fn: function(file) {
+    var data = JSON.parse(file.contents.toString());
+    return Object.keys(data.dependencies);
+  }
+};
+
+gulp.task('clone', function() {
+  return gulp.src('package.json')
+    .pipe(clone(options));
+});
 ```
 
 ## Contributing
