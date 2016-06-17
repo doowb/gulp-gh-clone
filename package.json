@@ -29,9 +29,7 @@
     "through2": "^2.0.1"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-format-md": "*",
-    "minimist": "^1.2.0",
+    "gulp-format-md": "^0.1.9",
     "mocha": "^2.5.3"
   },
   "keywords": [],
