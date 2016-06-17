@@ -10,12 +10,22 @@ var clone = require('..');
 
 gulp.task('dependencies', function() {
   return gulp.src('package.json')
-    .pipe(clone({dest: argv.dest}));
+    .pipe(clone({
+      dest: argv.dest,
+      fn: function(file) {
+        return JSON.parse(file.contents.toString()).dependencies;
+      }
+    }));
 });
 
 gulp.task('devDependencies', function() {
   return gulp.src('package.json')
-    .pipe(clone({prop: 'devDependencies', dest: argv.dest}));
+    .pipe(clone({
+      dest: argv.dest,
+      fn: function(file) {
+        return JSON.parse(file.contents.toString()).devDependencies;
+      }
+    }));
 });
 
 gulp.task('clone', ['dependencies']);
